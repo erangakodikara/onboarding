@@ -90,7 +90,6 @@ class chartController
     {
         $data = $datos;
         require_once __DIR__ . "/../view/" . $vista . "View.php";
-
     }
 
 }
