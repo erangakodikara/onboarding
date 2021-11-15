@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `register`;
 CREATE TABLE IF NOT EXISTS `register` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(50) NOT NULL,
   `email_id` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-COMMIT;
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
