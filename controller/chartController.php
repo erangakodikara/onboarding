@@ -35,7 +35,7 @@ class chartController
     public function run($accion)
     {
         switch ($accion) {
-            case "home" :
+            case "chart" :
                 $this->home();
                 break;
             default:
@@ -49,18 +49,22 @@ class chartController
      */
     public function index()
     {
-        //Create the Cohorts object.
-        $cohorts = new Cohorts($this->fileData);
+        if ($_SESSION['loggedIn']) {
+            //Create the Cohorts object.
+            $cohorts = new Cohorts($this->fileData);
 
-        //Get all the Cohorts.
-        $cohortsData = $cohorts->getAll();
+            //Get all the Cohorts.
+            $cohortsData = $cohorts->getAll();
 
-        $chartdata = $cohorts->createChartData($cohortsData);
-        //Load the index view and pass values to it.
-        $this->view("index", array(
-            "cohorts" => $cohortsData,
-            'chatdata' => $chartdata
-        ));
+            $chartdata = $cohorts->createChartData($cohortsData);
+            //Load the index view and pass values to it.
+            $this->view("index", array(
+                "cohorts" => $cohortsData,
+                'chatdata' => $chartdata
+            ));
+        } else {
+            header('location: index.php');
+        }
     }
 
     /**
@@ -68,18 +72,22 @@ class chartController
      */
     public function home()
     {
-        //Create the Cohorts object.
-        $cohorts = new Cohorts($this->fileData);
+        if ($_SESSION['loggedIn']) {
+            //Create the Cohorts object.
+            $cohorts = new Cohorts($this->fileData);
 
-        //Get all the Cohorts
-        $cohortsData = $cohorts->getAll();
+            //Get all the Cohorts
+            $cohortsData = $cohorts->getAll();
 
-        $chartdata = $cohorts->createChartData($cohortsData);
-        //Load the index view and pass values to it.
-        $this->view("home", array(
-            "cohorts" => $cohortsData,
-            'chatdata' => $chartdata
-        ));
+            $chartdata = $cohorts->createChartData($cohortsData);
+            //Load the index view and pass values to it.
+            $this->view("home", array(
+                "cohorts" => $cohortsData,
+                'chatdata' => $chartdata
+            ));
+        } else {
+            header('location: index.php');
+        }
     }
 
     /**

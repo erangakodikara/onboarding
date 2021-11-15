@@ -53,7 +53,7 @@ class conectar
      */
     public function dbConector()
     {
-        $dbdata = $this->driver .':host='. $this->host .  ';dbname=' . $this->database . ';charset=' . $this->charset;
+        $dbdata = $this->driver . ':host=' . $this->host . ';dbname=' . $this->database . ';charset=' . $this->charset;
 
         try {
             $connection = new PDO($dbdata, $this->user, $this->pass);

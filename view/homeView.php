@@ -31,7 +31,7 @@
 </head>
 <body>
 <h1>Retention curve</h1>
-
+<div><a href="index.php?controller=login&action=logout">Logout Here</a></div>
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 <div id='vueapp'>
 
