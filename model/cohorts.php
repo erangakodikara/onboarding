@@ -2,7 +2,10 @@
 
 namespace onboard\model;
 
-
+/**
+ * Class Cohorts
+ * @package onboard\model
+ */
 class Cohorts
 {
     private $fileData, $userId, $createdAt, $onboardingPerentage, $countApplications, $countAcceptedApplications;

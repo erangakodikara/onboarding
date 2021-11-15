@@ -1,8 +1,11 @@
 <?php
 
 use onboard\controller\chartController;
+use onboard\controller\loginController;
+use onboard\controller\signupController;
 
 require_once 'config/setting.php';
+session_start();
 
 // Load the controller and execute the action.
 if (isset($_GET["controller"])) {
@@ -23,9 +26,25 @@ if (isset($_GET["controller"])) {
  */
 function changeControlador($controller)
 {
-    $strFileController = 'controller/chartController.php';
-    require_once $strFileController;
-    $controllerObj = new chartController();
+    switch ($controller) {
+        case 'home':
+            $strFileController = 'controller/chartController.php';
+            require_once $strFileController;
+            $controllerObj = new chartController();
+            return $controllerObj;
+            break;
+        case 'signup':
+            $strFileController = 'controller/signupController.php';
+            require_once $strFileController;
+            $controllerObj = new signupController();
+            return $controllerObj;
+            break;
+        default:
+            $strFileController = 'controller/loginController.php';
+            require_once $strFileController;
+            $controllerObj = new loginController();
+            break;
+    }
     return $controllerObj;
 }
 
