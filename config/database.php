@@ -1,7 +1,7 @@
 <?php
 
 // Import data from file.
-define("DATA_FILE", "export.csv");
+define("DATA_FILE", "src/dao/db/resource/export.csv");
 
 // Import data from database.
 define("DB_DRIVER", "mysql");

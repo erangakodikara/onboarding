@@ -1,29 +1,24 @@
 <?php
 
-namespace onboard\core;
+
+namespace onboard\dao\db\impl;
+
+require_once 'src/dao/db/ConnectorI.php';
 
 use Exception;
+use onboard\src\dao\db\ConnectorI;
 use PDO;
 use PDOException;
 
-/**
- * Class conectar
- * @package onboard\core
- */
-class conectar
+require_once 'config/database.php';
+
+class DBConnector implements ConnectorI
 {
     private $driver;
     private $host, $user, $pass, $database, $charset;
-    private $dataFile;
 
-    /**
-     * conectar constructor.
-     */
     public function __construct()
     {
-        require_once 'config/database.php';
-
-        $this->dataFile = DATA_FILE;
         $this->driver = DB_DRIVER;
         $this->host = DB_HOST;
         $this->user = DB_USER;
@@ -32,26 +27,7 @@ class conectar
         $this->charset = DB_CHARSET;
     }
 
-    /**
-     * @return array
-     */
-    public function csvFileConector()
-    {
-        $dataArray = [];
-        if (($open = fopen("db/export.csv", "r")) !== FALSE) {
-            while (($data = fgetcsv($open, 1000, ";")) !== FALSE) {
-                $dataArray[] = $data;
-            }
-
-            fclose($open);
-        }
-        return $dataArray;
-    }
-
-    /**
-     * Db Conector
-     */
-    public function dbConector()
+    public function dataConnector()
     {
         $dbdata = $this->driver . ':host=' . $this->host . ';dbname=' . $this->database . ';charset=' . $this->charset;
 
@@ -60,10 +36,8 @@ class conectar
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $connection;
         } catch (PDOException $e) {
-            //We throw the exception
+            //throw the exception
             throw new Exception('Problem establishing the connection.');
         }
     }
-
 }
-
