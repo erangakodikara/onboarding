@@ -7,6 +7,12 @@
 </head>
 <body>
 <center>
+    <?php if (isset($data['error']) ||  ($data['error'] != '')) {  ?>
+        <div class="error"> <?php echo $data['error'] ;   ?> </div>
+    <?php }  ?>
+    <?php if (isset($data['success']) || ($data['error'] != '')) {  ?>
+        <div class="success"> <?php echo $data['success'] ;   ?> </div>
+    <?php }  ?>
     <div class="floating-box">
         <form name="form1" method="post" action="index.php?controller=login&action=login">
             <label for="uname">User Name</label>
