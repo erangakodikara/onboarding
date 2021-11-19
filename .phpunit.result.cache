@@ -1,0 +1,1 @@
+{"version":1,"defects":{"ChartCSVDataSetTest::testGetData":3,"ChartDatabaseDataSetTest::testGetData":4},"times":{"ChartCSVDataSetTest::testGetData":0.005,"ChartDatabaseDataSetTest::testGetData":0.007,"ChartServiceTest::testGetChartData":0,"RegisterDaoTest::testInsertUser":0.02,"RegisterDaoTest::testCheckUser":0.016,"RegisterDaoTest::testLogin":0.019}}
