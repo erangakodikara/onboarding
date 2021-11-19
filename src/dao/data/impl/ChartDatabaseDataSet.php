@@ -2,10 +2,13 @@
 
 
 namespace onboard\dao\data\impl;
+use onboard\dao\data\DataSetI;
 
 require_once 'src/dao/db/impl/DBConnector.php';
+require_once 'src/dao/data/DataSetI.php';
 
 use onboard\dao\db\impl\DBConnector;
+use PDO;
 
 class ChartDatabaseDataSet implements DataSetI
 {

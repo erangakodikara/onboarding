@@ -11,7 +11,6 @@ require_once 'src/dto/RegisterDTO.php';
 
 class SignupController implements BaseControllerI
 {
-
     public function index()
     {
         $this->view("signup", array(
@@ -50,9 +49,7 @@ class SignupController implements BaseControllerI
             $count = $registerService->checkUser($registerDTO);
             if ($count > 0) {
                 $error = "This User Already Exists";
-
             } else {
-
                 $registerService->insertUser($registerDTO);
                 $success = "User successfully registered";
             }
